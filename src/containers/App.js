@@ -10,7 +10,7 @@ import logMiddleware from '../middleWares/logMiddleware.js';
 
 const reducer = combineReducers(reducers);
 // 使用middleWare thunk， 如果没有自定义中间层的需求可以直接 const store = createStore(reducer);
-const createStoreWithMiddleware = applyMiddleware(thunk, logMiddleware)(createStore);
+const createStoreWithMiddleware = applyMiddleware(logMiddleware, thunk)(createStore);
 const store = createStoreWithMiddleware(reducer);
 
 class App extends React.Component {
